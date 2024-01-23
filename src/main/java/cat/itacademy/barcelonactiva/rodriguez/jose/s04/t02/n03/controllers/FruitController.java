@@ -19,14 +19,14 @@ public class FruitController {
     private final FruitServices fruitServices;
 
 
-    @GetMapping(path = "/fruita/getAll*")
+    @GetMapping(path = "/fruita/getAll")
     public ResponseEntity<List<Fruit>> getAllFruits() {
         return ResponseEntity.ok().body(fruitServices.getAllFruits());
     }
 
 
     @GetMapping(path = "/fruita/getOne/{id}")
-    public ResponseEntity<Fruit> getFruitById(@PathVariable Long id) {
+    public ResponseEntity<Fruit> getFruitById(@PathVariable String id) {
         return ResponseEntity.ok().body(fruitServices.getFruitById(id));
     }
 
@@ -45,14 +45,14 @@ public class FruitController {
 
 
     @PutMapping(path = "/fruita/update{id}")
-    public ResponseEntity<Fruit> updateFruit(@PathVariable(value = "id") Long id,
+    public ResponseEntity<Fruit> updateFruit(@PathVariable(value = "id") String id,
                                              @RequestBody Fruit fruitDto) {
         return ResponseEntity.ok().body(fruitServices.updateFruit(id,fruitDto));
     }
 
 
     @DeleteMapping(value = "/fruita/delete/{id}")
-    public ResponseEntity<String> deleteFruit(@PathVariable Long id) {
+    public ResponseEntity<String> deleteFruit(@PathVariable String id) {
         fruitServices.deleteFruitById(id);
         return new ResponseEntity<>(("Fruit deleted successfully- Fruit ID:" + id), HttpStatus.OK);
     }

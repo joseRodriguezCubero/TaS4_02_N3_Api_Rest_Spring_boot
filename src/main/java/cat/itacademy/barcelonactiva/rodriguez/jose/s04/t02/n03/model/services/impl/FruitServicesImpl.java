@@ -25,7 +25,7 @@ public class FruitServicesImpl implements FruitServices {
     }
 
     @Override
-    public Fruit getFruitById(Long id) {
+    public Fruit getFruitById(String id) {
         return fruitRepository.findById(id).orElseThrow(() -> new FruitNotFoundException("Fruit Not Found with ID: " + id));
     }
 
@@ -44,7 +44,7 @@ public class FruitServicesImpl implements FruitServices {
     }
 
     @Override
-    public Fruit updateFruit(Long id, Fruit fruit) {
+    public Fruit updateFruit(String id, Fruit fruit) {
         if (id == null) {
             throw new IllegalArgumentException("Fruit ID cannot be null");
         }
@@ -57,7 +57,7 @@ public class FruitServicesImpl implements FruitServices {
     }
 
     @Override
-    public void deleteFruitById(Long id) {
+    public void deleteFruitById(String id) {
         Fruit existingFruit = fruitRepository.findById(id)
                 .orElseThrow(() -> new FruitNotFoundException("Fruit Not Found with ID: " + id));
         fruitRepository.deleteById(existingFruit.getId());

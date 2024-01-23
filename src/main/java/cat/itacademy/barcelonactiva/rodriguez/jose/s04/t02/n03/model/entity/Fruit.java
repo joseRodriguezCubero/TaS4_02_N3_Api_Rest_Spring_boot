@@ -9,7 +9,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "fruit")
 public class Fruit {
     @Id
-    private Long id;
+    private String id;
     @Setter
     private String name;
     @Setter
@@ -18,14 +18,14 @@ public class Fruit {
     private boolean eatable;
 
 
-    public Fruit(String title, String description, boolean published) {
-        this.name = title;
-        this.tree = description;
-        this.eatable = published;
+    public Fruit(String name, String tree, boolean eatable) {
+        this.name = name;
+        this.tree = tree;
+        this.eatable = eatable;
     }
 
     @Override
     public String toString() {
-        return "Tutorial [id=" + id + ", title=" + name + ", desc=" + tree + ", published=" + eatable + "]";
+        return "Tutorial [id=" + id + ", name=" + name + ", tree=" + tree + ", eatable=" + eatable + "]";
     }
 }

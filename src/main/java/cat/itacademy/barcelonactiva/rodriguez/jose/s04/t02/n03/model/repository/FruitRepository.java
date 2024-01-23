@@ -7,9 +7,7 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 import java.util.List;
 import java.util.Optional;
 
-public interface FruitRepository extends MongoRepository<Fruit, Long> {
-
-        List<Fruit> findByEatable(boolean eatable);
+public interface FruitRepository extends MongoRepository<Fruit, String> {
 
         List<Fruit> findAllByOrderById();
 

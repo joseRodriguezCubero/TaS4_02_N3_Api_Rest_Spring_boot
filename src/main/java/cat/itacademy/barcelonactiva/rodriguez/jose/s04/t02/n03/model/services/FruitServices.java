@@ -8,14 +8,15 @@ import java.util.List;
 public interface FruitServices {
     List<Fruit> getAllFruits();
 
-    Fruit getFruitById(Long id);
+    Fruit getFruitById(String id);
 
     List<Fruit> getFruitContaining(String name);
 
     Fruit createFruit(Fruit fruitDto);
 
-    Fruit updateFruit(Long id, Fruit updatedFruit);
+    Fruit updateFruit(String id, Fruit updatedFruit);
 
-    void deleteFruitById(Long id) throws FruitNotFoundException;
+
+    void deleteFruitById(String id) throws FruitNotFoundException;
 }
 
