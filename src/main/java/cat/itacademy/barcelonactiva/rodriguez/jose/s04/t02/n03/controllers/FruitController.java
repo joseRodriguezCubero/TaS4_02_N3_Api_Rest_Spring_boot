@@ -51,7 +51,7 @@ public class FruitController {
         }
     }
 
-    @PostMapping("/tutorials")
+    @PostMapping("/fruita/add")
     public ResponseEntity<Fruit> createFruit(@RequestBody Fruit fruit) {
         try {
             Fruit _fruit = iFruitRepository.save(new Fruit(fruit.getName(), fruit.getTree(), false));
@@ -76,7 +76,7 @@ public class FruitController {
         }
     }
 
-    @DeleteMapping("/tutorials/{id}")
+    @DeleteMapping("/fruita/{id}")
     public ResponseEntity<HttpStatus> deleteFruit(@PathVariable("id") String id) {
         try {
             iFruitRepository.deleteById(id);
@@ -86,7 +86,7 @@ public class FruitController {
         }
     }
 
-    @DeleteMapping("/tutorials")
+    @DeleteMapping("/fruita/delete")
     public ResponseEntity<HttpStatus> deleteAllFruits() {
         try {
             iFruitRepository.deleteAll();
