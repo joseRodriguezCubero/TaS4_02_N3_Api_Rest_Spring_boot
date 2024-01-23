@@ -1,14 +1,20 @@
-package cat.itacademy.barcelonactiva.rodriguez.jose.s04.t02.n03.model;
+package cat.itacademy.barcelonactiva.rodriguez.jose.s04.t02.n03.model.entity;
 
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+@Getter
 @Document(collection = "fruit")
 public class Fruit {
     @Id
-    private String id;
+    private Long id;
+    @Setter
     private String name;
+    @Setter
     private String tree;
+    @Setter
     private boolean eatable;
 
 
@@ -16,34 +22,6 @@ public class Fruit {
         this.name = title;
         this.tree = description;
         this.eatable = published;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getTree() {
-        return tree;
-    }
-
-    public void setTree(String tree) {
-        this.tree = tree;
-    }
-
-    public boolean isEatable() {
-        return eatable;
-    }
-
-    public void setEatable(boolean isPublished) {
-        this.eatable = isPublished;
     }
 
     @Override
